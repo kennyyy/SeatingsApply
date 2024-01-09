@@ -108,15 +108,28 @@
                         <span class="nav_name">Other</span>
                     </a>
 
-
-                    <a href="#" class="nav__link">
-
+					<c:choose>
+					<c:when test="${sessionScope.user_id == null }">
+                    <a href="${pageContext.request.contextPath }/member/join.member" class="nav__link">
+                        
                         <span class="nav_name">Join</span>
                     </a>
                 </div>
-                <a href="#" class="nav__link">
+               		 <a href="${pageContext.request.contextPath }/member/login.member" class="nav__link">
 
                     <span class="nav_name">Log In</span>
+                    </c:when>
+                    <c:otherwise>
+                    <a href="${pageContext.request.contextPath }/member/join.member" class="nav__link">
+                        
+                        <span class="nav_name">MYPAGE</span>
+                    </a>
+                </div>
+               		 <a href="${pageContext.request.contextPath }/member/login.member" class="nav__link">
+
+                    <span class="nav_name">Log Out</span>
+                    </c:otherwise>
+                    </c:choose>
                 </a>
             </div>
         </nav>
