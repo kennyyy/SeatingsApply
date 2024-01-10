@@ -70,3 +70,22 @@ ALTER TABLE SEAT ADD CONSTRAINT FK_OPTIONS_TO_SEAT_1 FOREIGN KEY (
 REFERENCES OPTIONS (
 	ROOMNUMBER
 );
+
+regdate = Timestamp형 써야 할 경우, 내 호출마다 아래식 추가필요
+SimpleDateFormat sdf  = new SimpleDateFormat("yyyy-MM-dd");
+//			Date date;
+//			Timestamp timestamp = null;
+//			try {
+//				date = sdf.parse(regdate);
+//				timestamp = new Timestamp(date.getTime());
+//			} catch (ParseException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			 //timestamp
+
+
+
+
+
+

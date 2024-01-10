@@ -1,6 +1,4 @@
-package com.member.model;
-
-import java.sql.Timestamp;
+package com.sa.log.model;
 
 public class MemberVO {
 
@@ -9,17 +7,17 @@ public class MemberVO {
 	private String name;
 	private String email;
 	private String address;
-	private int age;
+	private String age;
 	private String gender;
-	private Timestamp regdate;
+	private String regdate;
 	private String master;
-	private int limitroom;
+	private String limitroom;
 	
 	public MemberVO() {
 	}
 
-	public MemberVO(String id, String pw, String name, String email, String address, int age, String gender,
-		Timestamp regdate, String master, int limitroom) {
+	public MemberVO(String id, String pw, String name, String email, String address, String age, String gender,
+		String regdate, String master, String limitroom) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -73,11 +71,11 @@ public class MemberVO {
 		this.address = address;
 	}
 
-	public int getAge() {
+	public String getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 
@@ -89,11 +87,11 @@ public class MemberVO {
 		this.gender = gender;
 	}
 
-	public Timestamp getRegdate() {
+	public String getRegdate() {
 		return regdate;
 	}
 
-	public void setRegdate(Timestamp regdate) {
+	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
 
@@ -105,21 +103,11 @@ public class MemberVO {
 		this.master = master;
 	}
 
-	public int getLimitroom() {
+	public String getLimitroom() {
 		return limitroom;
 	}
 
-	public void setLimitroom(int limitroom) {
+	public void setLimitroom(String limitroom) {
 		this.limitroom = limitroom;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

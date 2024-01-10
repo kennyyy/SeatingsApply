@@ -92,6 +92,7 @@
                       
                         <span class="nav_name">Home</span>
                     </a>
+                    
                     <a href="#" class="nav__link">
       
                         <span class="nav_name">Room Join</span>
@@ -109,28 +110,32 @@
                     </a>
 
 					<c:choose>
-					<c:when test="${sessionScope.user_id == null }">
-                    <a href="${pageContext.request.contextPath }/member/join.member" class="nav__link">
-                        
-                        <span class="nav_name">Join</span>
-                    </a>
-                </div>
-               		 <a href="${pageContext.request.contextPath }/member/login.member" class="nav__link">
-
-                    <span class="nav_name">Log In</span>
-                    </c:when>
+						<c:when test="${sessionScope.user_id == null }">
+						
+	                    <a href="${pageContext.request.contextPath }/member/join.member" class="nav__link">
+	                        
+	                        <span class="nav_name">Join</span>
+	                    </a>
+	                    
+	               		 <a href="${pageContext.request.contextPath }/member/login.member" class="nav__link">
+	
+	                   		 <span class="nav_name">Log In</span>
+	                    </a>
+	                    </c:when>
                     <c:otherwise>
-                    <a href="${pageContext.request.contextPath }/member/join.member" class="nav__link">
-                        
-                        <span class="nav_name">MYPAGE</span>
-                    </a>
-                </div>
-               		 <a href="${pageContext.request.contextPath }/member/login.member" class="nav__link">
-
-                    <span class="nav_name">Log Out</span>
+	                    
+	                    <a href="${pageContext.request.contextPath }/member/mypage.member" class="nav__link">
+	                        
+	                        <span class="nav_name">MYPAGE</span>
+	                    </a>
+	                    
+	               		 <a href="${pageContext.request.contextPath }/member/logout.member" class="nav__link">
+	
+	                    	<span class="nav_name">Log Out</span>
+	                    </a>
                     </c:otherwise>
                     </c:choose>
-                </a>
+                </div>
             </div>
         </nav>
     </div>

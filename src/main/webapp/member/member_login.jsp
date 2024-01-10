@@ -8,10 +8,17 @@
 			<h3>Log In</h3>
 			<hr>
 			<form action="loginMem.member" method="post">
-				<input type="text" name="id" placeholder="아이디"><br><br>
-				<input type="password" name="pw" placeholder="비밀번호"><br><br>
-				<input type="submit" value="로그인" class="btn btn-default">&nbsp;
-				<input type="button" value="회원가입" class="btn btn-default" onclick="location.href='joinMem.member';">    
+			<table border="3">
+				<tr>
+					<td><input type="text" name="id" placeholder="아이디"></td>
+				</tr>
+				<tr>
+					<td><input type="password" name="pw" placeholder="비밀번호"></td>
+				</tr>
+			</table>
+			<br>
+			<input type="submit" value="로그인" class="btn btn-default">&nbsp;&nbsp;
+			<input type="button" value="회원가입" class="btn btn-default" onclick="location.href='join.member';">
 			</form>
 			${msg }<br>
 	</div>
