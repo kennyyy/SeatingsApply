@@ -112,24 +112,24 @@
 					<c:choose>
 						<c:when test="${sessionScope.user_id == null }">
 						
-	                    <a href="${pageContext.request.contextPath }/member/join.member" class="nav__link">
+	                    <a href="/join.member" class="nav__link">
 	                        
 	                        <span class="nav_name">Join</span>
 	                    </a>
 	                    
-	               		 <a href="${pageContext.request.contextPath }/member/login.member" class="nav__link">
+	               		 <a href="/login.member" class="nav__link">
 	
 	                   		 <span class="nav_name">Log In</span>
 	                    </a>
 	                    </c:when>
                     <c:otherwise>
 	                    
-	                    <a href="${pageContext.request.contextPath }/member/mypage.member" class="nav__link">
+	                    <a href="/mypage.member" class="nav__link">
 	                        
 	                        <span class="nav_name">MYPAGE</span>
 	                    </a>
 	                    
-	               		 <a href="${pageContext.request.contextPath }/member/logout.member" class="nav__link">
+	               		 <a href="/logout.member" class="nav__link">
 	
 	                    	<span class="nav_name">Log Out</span>
 	                    </a>

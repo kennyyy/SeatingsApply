@@ -55,19 +55,19 @@
 			<tr>
 				<td>가입날짜</td>
 				<td>
-					<input type="date" name="regdate" value="${vo.regdate }" readonly="readonly">
+					<input type="date" name="regdate" value="${vo.regdate }" readonly>
 				</td>
 			</tr>
 			<tr>
 				<td>접근권한</td>
 				<td>
-					<input type="text" name="master" value="${vo.master }" readonly="readonly">
+					<input type="text" name="master" value="${vo.master }" readonly>
 				</td>
 			</tr>
 			<tr>
 				<td>접속가능방개수</td>
 				<td>
-					<input type="text" name="limitroom" value="${vo.limitroom }" readonly="readonly">
+					<input type="text" name="limitroom" value="${vo.limitroom }" readonly>
 				</td>
 			</tr>
 		</table>

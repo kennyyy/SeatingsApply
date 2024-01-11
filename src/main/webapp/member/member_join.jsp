@@ -1,7 +1,13 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
-	<%@ include file="../include/header.jsp" %>
+    pageEncoding="UTF-8"%>	
+<%
+	Date date = new Date();
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	String sysdate = sdf.format(date);
+%>
+<%@ include file="../include/header.jsp" %>
 	
 	<div align="center" class="div_center">
 		<h3>회원가입</h3>
@@ -54,8 +60,7 @@
 				<tr>
 					<td>가입날짜</td>
 					<td>
-						<input type="date" name="regdate">
-					</td>
+						<input type="text" name="regdate" value=<%=sysdate %> readonly>
 				</tr>
 				<tr>
 					<td>접근권한</td>

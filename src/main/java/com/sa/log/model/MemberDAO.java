@@ -172,8 +172,10 @@ public class MemberDAO {
 				String age = rs.getString("age"); 
 				String gender = rs.getString("gender");
 				String regdate = rs.getString("regdate");
+				String master = rs.getString("master");
+				String limitroom = rs.getString("limitroom");
 				
-				vo = new MemberVO(id, null, name, email, address, age, gender, regdate, null, null);
+				vo = new MemberVO(id, null, name, email, address, age, gender, regdate, master, limitroom);
 			}
 			
 		} catch (Exception e) {
@@ -194,11 +196,11 @@ public class MemberDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update member set pw = ?, name = ?, email = ?, address = ?, age = ?, gender = ?";  
+		String sql = "update members set pw = ?, name = ?, email = ?, address = ?, age = ?, gender = ?, master = ?, limitroom = ? where id = ?";  
 		
 		try {
 			
-			conn = DriverManager.getConnection(sql);
+			conn = DriverManager.getConnection(url, uid, upw);
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getPw());
@@ -207,6 +209,9 @@ public class MemberDAO {
 			pstmt.setString(4, vo.getAddress());
 			pstmt.setString(5, vo.getAge());
 			pstmt.setString(6, vo.getGender());
+			pstmt.setString(7, vo.getMaster());
+			pstmt.setString(8, vo.getLimitroom());
+			pstmt.setString(9, vo.getId());
 			
 			result = pstmt.executeUpdate();
 			
