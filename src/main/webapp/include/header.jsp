@@ -104,7 +104,7 @@
                         <span class="nav_name">Room Setting</span>
                     </a>
                     
-                    <a href="#" class="nav__link">
+                    <a href="/list.other" class="nav__link">
 
                         <span class="nav_name">Other</span>
                     </a>
