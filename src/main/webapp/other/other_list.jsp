@@ -5,7 +5,7 @@
 
 <%@ include file="../include/header.jsp" %>
 
-	<div class="container">
+<div align="center" class="div_center">
 		<h3>MyBoard</h3>
 		
 		<table class="table table-dark table-hover">	
@@ -20,7 +20,7 @@
 			</thead>
 					
 			<tbody>
-				<c:forEach var="vo" items="${list }">
+				<c:forEach var="vo" items="${list }" varStatus="status">
 				<tr>
 					<td>${vo.bno }</td>
 					<td>${vo.writer}</td>
@@ -44,7 +44,7 @@
 					</td>
 				</tr>
 			</tbody>
-		<hr>
+			<hr>
 		</table>
 	</div>
 

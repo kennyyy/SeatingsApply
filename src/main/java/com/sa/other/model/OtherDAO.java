@@ -77,7 +77,7 @@ public class OtherDAO {
 		PreparedStatement pstmt = null;
 		
 		String sql = "insert into other(bno, writer, title, content)"
-				   + " values(OTHER_SEQ.nextval, ?, ?, ?)";
+				   + " values(OTHER_seq.nextval, ?, ?, ?)";
 		
 		try {
 			
