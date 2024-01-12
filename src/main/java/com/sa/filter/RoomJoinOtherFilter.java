@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @WebFilter({})
-public class RoomJoinFilter implements Filter{
+public class RoomJoinOtherFilter implements Filter{
 	
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

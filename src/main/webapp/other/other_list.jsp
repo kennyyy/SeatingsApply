@@ -8,14 +8,14 @@
 	<div class="container">
 		<h3>MyBoard</h3>
 		
-		<table class="table table-bordered">	
+		<table class="table table-dark table-hover">	
 			<thead>
 				<tr>
-					<th>글번호</th>
-					<th>작성자</th>
-					<th>글제목</th>
-					<th>작성일</th>
-					<th>조회수</th>
+					<th scope="col">글번호</th>
+					<th scope="col">작성자</th>
+					<th scope="col">글제목</th>
+					<th scope="col">작성일</th>
+					<th scope="col">조회수</th>
 				</tr>
 			</thead>
 					
@@ -44,7 +44,7 @@
 					</td>
 				</tr>
 			</tbody>
-		
+		<hr>
 		</table>
 	</div>
 
