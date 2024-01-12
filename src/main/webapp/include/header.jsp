@@ -92,6 +92,7 @@
                       
                         <span class="nav_name">Home</span>
                     </a>
+                    
                     <a href="#" class="nav__link">
       
                         <span class="nav_name">Room Join</span>
@@ -103,21 +104,38 @@
                         <span class="nav_name">Room Setting</span>
                     </a>
                     
-                    <a href="#" class="nav__link">
+                    <a href="/list.other" class="nav__link">
 
                         <span class="nav_name">Other</span>
                     </a>
 
-
-                    <a href="#" class="nav__link">
-
-                        <span class="nav_name">Join</span>
-                    </a>
+					<c:choose>
+						<c:when test="${sessionScope.user_id == null }">
+						
+	                    <a href="/join.member" class="nav__link">
+	                        
+	                        <span class="nav_name">Join</span>
+	                    </a>
+	                    
+	               		 <a href="/login.member" class="nav__link">
+	
+	                   		 <span class="nav_name">Log In</span>
+	                    </a>
+	                    </c:when>
+                    <c:otherwise>
+	                    
+	                    <a href="/mypage.member" class="nav__link">
+	                        
+	                        <span class="nav_name">MYPAGE</span>
+	                    </a>
+	                    
+	               		 <a href="/logout.member" class="nav__link">
+	
+	                    	<span class="nav_name">Log Out</span>
+	                    </a>
+                    </c:otherwise>
+                    </c:choose>
                 </div>
-                <a href="#" class="nav__link">
-
-                    <span class="nav_name">Log In</span>
-                </a>
             </div>
         </nav>
     </div>
