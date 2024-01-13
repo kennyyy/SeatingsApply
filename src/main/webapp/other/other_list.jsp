@@ -5,11 +5,11 @@
 
 <%@ include file="../include/header.jsp" %>
 
-<div align="center" class="div_center">
-		<h3>MyBoard</h3>
+<div align="center" class="div_center" >
+		<h3>유저 커뮤니티</h3>
 		
-		<table class="table table-dark table-hover">	
-			<thead>
+		<table class="table table-dark table-hover" border="1">	
+			<thead style = "text-align: center">
 				<tr>
 					<th scope="col">글번호</th>
 					<th scope="col">작성자</th>
@@ -19,7 +19,7 @@
 				</tr>
 			</thead>
 					
-			<tbody>
+			<tbody style = "text-align: center">
 				<c:forEach var="vo" items="${list }" varStatus="status">
 				<tr>
 					<td>${vo.bno }</td>
@@ -31,7 +31,7 @@
 				</c:forEach>
 			</tbody>
 			
-			<tbody>
+			<tbody style = "text-align: center">
 				<tr>
 					<td colspan="5" align="right">
 						<form action="" class="form-inline" >
