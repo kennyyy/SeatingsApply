@@ -9,11 +9,11 @@
     <!-- IONICONS -->
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <!-- JS -->
-    <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
     
     <!-- CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/styles.css">
-
+    <link rel="stylesheet" href="/assets/css/styles.css">
+	<link rel="stylesheet" href="/assets/css/setStyles.css">
     <title>SideBar sub menus</title>
     
     <style>
@@ -99,7 +99,7 @@
                     </a>
                
 
-                    <a href="#" class="nav__link">
+                    <a href="/room/roomSet.roomSet" class="nav__link">
 
                         <span class="nav_name">Room Setting</span>
                     </a>
