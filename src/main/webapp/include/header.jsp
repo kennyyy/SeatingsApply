@@ -14,7 +14,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/styles.css">
 	<link rel="stylesheet" href="/assets/css/setStyles.css">
-    <title>SideBar sub menus</title>
+    <title>좌석 선택 프로그램</title>
     
     <style>
 		.container{
@@ -88,12 +88,12 @@
                     <a href="#" class="nav__logo">Menu</a>
                 </div>
                 <div class="nav__list">
-                    <a href="#" class="nav__link active">
+                    <a href="/" class="nav__link active">
                       
                         <span class="nav_name">Home</span>
                     </a>
                     
-                    <a href="#" class="nav__link">
+                    <a href="/apply/list.apply" class="nav__link">
       
                         <span class="nav_name">Room Join</span>
                     </a>

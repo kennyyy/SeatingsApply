@@ -31,6 +31,7 @@ public class ApplyServiceImpl implements ApplyService {
 	@Override
 	public ArrayList<String> getRoomNumApply(HttpServletRequest request, HttpServletResponse response) {
 		String roomnumber = request.getParameter("roomnumber");
+		System.out.println(roomnumber);
 		ArrayList<String> RoomNumApply = adao.getApply(roomnumber);
 		
 		return RoomNumApply;

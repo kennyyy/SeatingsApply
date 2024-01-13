@@ -48,12 +48,13 @@ public class RoomSetSerivce implements RoomSetServiceIf {
         HttpSession session = request.getSession();
         RoomSetVO RVO = (RoomSetVO) session.getAttribute("RVO");
 
-
-        for (String s : seat) {
-            String a = RDAO.getRoomNuber(RVO.getMid());
-            System.out.println(s);
-            System.out.println(a);
-            RDAO.insertSeat(s, a);
+        if(seat!= null) {
+	        for (String s : seat) {
+	            String a = RDAO.getRoomNuber(RVO.getMid());
+	            System.out.println(s);
+	            System.out.println(a);
+	            RDAO.insertSeat(s, a);
+	        }
         }
 
 
