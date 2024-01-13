@@ -1,0 +1,105 @@
+[33mcommit 46e2f774972b8eea696cc150153e2ee17caecc2e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Merge: 8253ed3 f396311
+Author: WonJun <choiggl89@gmail.com>
+Date:   Sat Jan 13 16:01:21 2024 +0900
+
+    log
+
+[33mcommit 8253ed3131926534ea73821247e84a8fbabf9214[m
+Author: WonJun <choiggl89@gmail.com>
+Date:   Sat Jan 13 15:57:33 2024 +0900
+
+    origin
+
+[33mcommit f396311347ce3c48ad076b08b26b098578df4fc4[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: kennyyy <kennyyy@naver.com>
+Date:   Sat Jan 13 15:33:13 2024 +0900
+
+    update push master
+
+[33mcommit 0ade809850d155fff3abfd429fe06eb2eb2f245e[m
+Merge: 573dfc3 4215afd
+Author: SINHEESEOP <143372374+SINHEESEOP@users.noreply.github.com>
+Date:   Sat Jan 13 14:32:24 2024 +0900
+
+    Merge pull request #3 from kennyyy/roomSet
+    
+    1차  커밋
+
+[33mcommit 4215afd9139103b6dd9f5ee8682216df93293f20[m
+Author: SINHEESEOP <shfurwnd97@gmail.com>
+Date:   Sat Jan 13 14:21:45 2024 +0900
+
+    1차  커밋
+
+[33mcommit 573dfc3fc539ec0f0dcbece3a9bd298b646ffffa[m
+Merge: a399d67 ce532dc
+Author: SINHEESEOP <143372374+SINHEESEOP@users.noreply.github.com>
+Date:   Sat Jan 13 14:17:55 2024 +0900
+
+    Merge pull request #2 from kennyyy/roomSet
+    
+    테스트
+
+[33mcommit ce532dc56309ca17f6d05f9bc00bc6e586af6c20[m
+Author: SINHEESEOP <shfurwnd97@gmail.com>
+Date:   Sat Jan 13 14:17:29 2024 +0900
+
+    테스트
+
+[33mcommit a399d671818ec6bcaac94616c41f82ea8a14468b[m
+Merge: c74c6d6 6c75f5e
+Author: WnJnCh <154486787+WnJnCh@users.noreply.github.com>
+Date:   Fri Jan 12 21:43:33 2024 +0900
+
+    Merge pull request #1 from kennyyy/log
+    
+    Log
+
+[33mcommit 6c75f5e39d199c3d487b210d35a02118eaf489b2[m[33m ([m[1;31morigin/log[m[33m, [m[1;32mlog[m[33m)[m
+Author: WonJun <choiggl89@gmail.com>
+Date:   Fri Jan 12 21:34:57 2024 +0900
+
+    log
+
+[33mcommit dc61fc545b9fd7db1e87c250002fee14d37e91a7[m
+Author: WonJun <choiggl89@gmail.com>
+Date:   Fri Jan 12 19:48:32 2024 +0900
+
+    log
+
+[33mcommit d9c5115c40dc4eae8d5ebdee954376034795a268[m
+Author: WonJun <choiggl89@gmail.com>
+Date:   Fri Jan 12 19:06:36 2024 +0900
+
+    log
+
+[33mcommit bd1c67d3ec9c807be4721a8f45e56700ab80f423[m
+Author: WonJun <choiggl89@gmail.com>
+Date:   Thu Jan 11 21:27:42 2024 +0900
+
+    log
+
+[33mcommit 7100c68a9971619cfbf64876179eb8e7109853aa[m
+Author: WonJun <choiggl89@gmail.com>
+Date:   Wed Jan 10 21:44:05 2024 +0900
+
+    log
+
+[33mcommit 95d0822524c4f1e54b3a528e6d26da9b9119e337[m
+Author: WonJun <choiggl89@gmail.com>
+Date:   Tue Jan 9 21:59:46 2024 +0900
+
+    log
+
+[33mcommit c74c6d61b2cce7337c5b38dc06be0f8994c96ce5[m
+Author: kennyyy <kennyyy@naver.com>
+Date:   Tue Jan 9 18:15:45 2024 +0900
+
+    index.html insert
+
+[33mcommit 7d181278534e1ad879588d923d7248d3df06695c[m[33m ([m[1;31morigin/apply[m[33m)[m
+Author: kennyyy <kennyyy@naver.com>
+Date:   Tue Jan 9 17:58:13 2024 +0900
+
+    first commit
