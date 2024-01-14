@@ -4,10 +4,10 @@
 <%@ include file="../include/header.jsp" %>
 
 <div align="center" class="div_center">
-	<h3>Write</h3>
-	<hr>
+	<h1>[글 작성]</h1><br>
+	<hr><br>
 	<form action="registOth.other" method="post">
-		<table border="3" width="800">
+		<table border="1" width="800">
 			<tr>
 				<td>작성자</td>
 				<td>
@@ -27,10 +27,10 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					<input type="submit" value="작성완료" onclick="">
+				<td colspan="2" style= "text-align: right;">
+					<input type="submit" value="작성완료" onclick="" style = "display: inline-block; width: 100px; font-size: 15px; ">
 					&nbsp;&nbsp;
-					<input type="button" value="목록" onclick="location.href='list.other';">         
+					<input type="button" value="목록" onclick="location.href='list.other';" style = "margin-right: 30px; ">         
 				</td>
 			</tr>
 		</table>

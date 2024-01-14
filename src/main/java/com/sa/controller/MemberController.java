@@ -73,6 +73,7 @@ public class MemberController extends HttpServlet {
 			
 			MemberVO vo = service.login(request, response);
 			
+			
 			if(vo != null) {
 				
 				HttpSession session = request.getSession();

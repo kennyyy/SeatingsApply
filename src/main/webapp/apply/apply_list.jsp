@@ -39,11 +39,14 @@
 				
 			</tbody>
 		
-		</table>
-		
-			<br><br>
-			<h3>선생님이 요청 하신 작업(오프라인 랜덤 뽑기) (마스터계정만 보임)</h3>
-			<h3 style="padding-bottom: 20px;"><input type="button" value="선생님 자바 랜덤자리배치 프로그램을 JSP로 구현" class="btn btn-default" onclick="location.href='./room_setting.jsp'; "></h3>
+		</table><br><br><br>
+			<c:if test="${user_master eq 'M' }">
+					
+				<h1>[강사님 오리지널 자리 랜덤 뽑기 프로그램을 JSP로 구현]</h1>
+				<h3>(마스터 계정만 아래 버튼이 보임)</h3>
+				<h3 style="padding-bottom: 20px;"><input type="button" value="랜덤뽑기 이동" class="btn btn-default" onclick="location.href='./room_setting.jsp'; "></h3>
 				
+			</c:if>
+		
 	</div>
 <%@ include file = "../include/footer.jsp" %>

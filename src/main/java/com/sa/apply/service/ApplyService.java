@@ -23,7 +23,7 @@ public interface ApplyService {
 	public ArrayList<String> getSeat (HttpServletRequest request, HttpServletResponse response);
 	public ArrayList<ApplyVO> getIsWin (HttpServletRequest request, HttpServletResponse response);
 	public int seatInsert(HttpServletRequest request, HttpServletResponse response);
-	public void startRandomSeat(HttpServletRequest request, HttpServletResponse response);
+	
 	public int applySeatUpdate(HttpServletRequest request, HttpServletResponse response);
 	public int getUserSeat(HttpServletRequest request, HttpServletResponse response);
 	public ArrayList<ApplyVO> getRoomAllApply(HttpServletRequest request, HttpServletResponse response);

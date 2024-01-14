@@ -24,9 +24,11 @@
 		section{
 			margin: 0 auto;
 			width: 100%;
-			height: 650px;
+			height: 670px;
 		}
+	
 		footer{
+
 			position:sticky;
 			bootom: 0px;
 			width: 100%;
@@ -71,6 +73,18 @@
 			margin: 80px auto;
 			border-radius: 15px;
 			
+		}
+		.ran_btn{
+			background-color: #333;
+			border-radius: 5px; 
+		  	color: white;  
+		  	cursor:pointer;
+		 	border: none; 
+		 	width: 100px; 
+		 	height: 30px;
+		}
+		.ran_btn:hover {
+			background-color : gray;
 		}
 	</style>
 </head>

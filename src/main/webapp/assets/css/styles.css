@@ -165,3 +165,15 @@ a {
     transform: rotate(180deg);
     transition: .5s;
 }
+.ran-btn{
+	background-color: black;
+	border-radius: 5px; 
+  	color: white;  
+  	cursor:pointer;
+ 	border: none; 
+ 	width: 100px; 
+ 	height: 30px;
+}
+.ran-btn:hover {
+	color : blue;
+}
