@@ -287,7 +287,9 @@ public class ApplyController extends HttpServlet {
 				
 			}else {
 				if(userList.size() < winningNum) {
-					winningUser.addAll(userList);
+					while(winningUser.size() != userList.size()) {
+						winningUser.add(userList.get(random.nextInt(userList.size())));
+					}
 				}else {
 					while(winningUser.size() != winningNum) {
 						winningUser.add(userList.get(random.nextInt(userList.size())));
@@ -296,7 +298,7 @@ public class ApplyController extends HttpServlet {
 				
 				userList.removeAll(winningUser); 
 				for(String s : winningUser) {
-					remainUser.addFirst(s);
+					remainUser.addLast(s);
 				}
 				
 				System.out.println(userList); 

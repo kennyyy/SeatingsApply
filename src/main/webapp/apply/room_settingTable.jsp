@@ -3,10 +3,10 @@
 <%@ include file="/include/header.jsp" %>
 
 	<div class="form-group" ">
-        <h3>랜덤 버튼 : ${msg } <input class="ran_btn" type="button" name="RANDOMCYCLE" value="랜덤 뽑기" onclick="randomChoose()"> 
+        <h3>랜덤 버튼 : ${msg } <input class="ran_btn" type="button" name="RANDOMCYCLE" value="랜덤 뽑기" onclick="randomChoose(${userList.size()}, ${winNum})"> 
         [누를때마다 정하신 당첨인원이 랜덤으로 뽑힙니다.] </h3>
        <input style="font-size: 30px; font-weight: bold;" type="text"  value= "대기 중인 유저 : ${userList }" /> 
-       <input style="font-size: 30px; font-weight: bold;" type="text"  value= "당첨된 유저 : ${remainUser }" />
+       <input style="font-size: 30px; font-weight: bold;" type="text"  value= "당첨 순서 : ${remainUser }" />
  	</div> 
  	<h3 style="text-align: center;">[이쪽이 칠판] </h3>
 <c:set var="index" value="1"/>
@@ -36,7 +36,12 @@
     </form>
 </div>
 <script type="text/javascript">
-	function randomChoose(num)  {
+	function randomChoose(listSize, winNum)  {
+		if(listSize-winNum <= 0){
+			alert("랜덤뽑기가 완료되었습니다. (남은유저 : 0명)");
+		}else{
+			alert("랜덤 당첨자 뽑기 완료! (남은유저 : "+(listSize - winNum)+"명)");
+		}
 		location.href='./random.apply';
 	  	
 	}
