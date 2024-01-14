@@ -104,7 +104,41 @@ public class ApplyDAO {
 		
 		return user;
 	}
-	
+	public ArrayList<ApplyVO> getRoomAllApply(String roomnumber) {
+		ArrayList<ApplyVO> user = new ArrayList<ApplyVO>();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from apply where roomnumber = ?";
+		
+		try {
+			conn = dataSource.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, roomnumber);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ApplyVO avo = new ApplyVO();
+				
+				avo.setUserid(rs.getString("userid"));
+				avo.setRoomnumber(rs.getString("roomnumber"));
+				avo.setIswin(rs.getString("iswin"));
+				avo.setSelectseat(rs.getString("selectseat"));
+		
+				user.add(avo);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn, pstmt, rs);
+		}
+		
+		return user;
+	}
 	//유저가 선택한 좌석이 있는지 조회
 	public int getApplySelectSeat(String userid, String roomnumber) {
 		

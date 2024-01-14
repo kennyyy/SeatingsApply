@@ -60,7 +60,7 @@ public class ApplyController extends HttpServlet {
 			
 			ArrayList<OptionVO> ovo = service.getOption(request, response);
 
-			ArrayList<Integer> nowUserRoomsNum = ((ApplyServiceImpl) service).getUserRoomsNum(request, response);
+			ArrayList<Integer> nowUserRoomsNum = service.getUserRoomsNum(request, response);
 
 			request.setAttribute("nowUserRoomsNum", nowUserRoomsNum);
 			request.setAttribute("ovo", ovo);
@@ -69,38 +69,51 @@ public class ApplyController extends HttpServlet {
 
 		} else if (path.equals("/apply/join.apply")) {
 			System.out.println("입장");
-			HttpSession session = request.getSession();
+			HttpSession session = request.getSession();	
 			String userid = (String) session.getAttribute("user_id");
+			
+			
 			System.out.println(userid);
 			ArrayList<String> applyUesr = service.getRoomNumApply(request, response);
-			for(String s : applyUesr) {
-				System.out.println(s);
-			}
+		
+			
 			boolean isNotApplyUser = false;
 			for (String s : applyUesr) {
 				if (s.equals(userid)) {
-					// response.sendRedirect("apply_waittingRoom.jsp?roomnumber="+request.getParameter("roomnumber"));
 					isNotApplyUser = true;
-					// if iswin == y이면 버튼생김(테스트용)
-					ArrayList<ApplyVO> iswinList = service.getIsWin(request, response);
-					request.setAttribute("iswinList", iswinList);
-					request.getRequestDispatcher("apply_waittingRoom.jsp").forward(request, response);
 				}
 
 			}
-			if (!isNotApplyUser) {
+			if(userid == null) {
+				System.out.println("유저 정보없음");
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('입장 불가능한 유저(로그인 안한듯?)');");
+				out.println("location.href='list.apply'; ");
+				out.println("</script>");
+				out.flush();
+			}else if(!isNotApplyUser) {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
 				out.println("alert('이방 신청자 아님');");
 				out.println("location.href='list.apply'; ");
 				out.println("</script>");
+				out.flush();
 			}
+		
+		
 			// 유저가 꽉차면
 			if (service.getRoomNumApply(request, response).size() >= service.getNumCount(request, response)) {
 				int result = service.allUserUpdateWin(request, response);
-				System.out.println(result + "업데이트완료");
+				System.out.println(result + "개 : 업데이트완료");
 			}
+			
+			
+			ArrayList<ApplyVO> iswinList = service.getIsWin(request, response);
+			request.setAttribute("iswinList", iswinList);
+			request.getRequestDispatcher("apply_waittingRoom.jsp").forward(request, response);
 
 		}
 
@@ -117,19 +130,23 @@ public class ApplyController extends HttpServlet {
 			System.out.println(userid);
 			System.out.println(service.getRoomNumApply(request, response).size());
 			System.out.println(service.getNumCount(request, response));
+			
+			boolean isFull = false;
 			// 방인원 꽉차면 못들어가게(신청못하게)
 			if ((service.getRoomNumApply(request, response).size()) >= service.getNumCount(request, response)) {
+				isFull = true;
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
 				out.println("alert('신청자가 꽉 찼습니다.');");
 				out.println("location.href='list.apply'; ");
 				out.println("</script>");
+				out.flush();
 
 			}
 
 			// 이미 유저가 있으면 경고창 없으면, 신청
-			boolean isUser = false;
+	
 			for (String a : getApplyList) {
 				if (a.equals(userid)) {
 					response.setContentType("text/html; charset=UTF-8");
@@ -138,10 +155,11 @@ public class ApplyController extends HttpServlet {
 					out.println("alert('이미 신청한 방입니다.');");
 					out.println("location.href='list.apply'; ");
 					out.println("</script>");
-					isUser = true;
+					out.flush();
 				}
 			}
-			if (!isUser) {
+			
+			if (userid != null && !isFull) {
 				service.insertApply(request, response);
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();
@@ -149,6 +167,16 @@ public class ApplyController extends HttpServlet {
 				out.println("alert('신청 완료.');");
 				out.println("location.href='list.apply'; ");
 				out.println("</script>");
+				out.flush();
+			}
+			if( userid == null) {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('신청 불가능한 유저(로그인 안한듯?)');");
+				out.println("location.href='list.apply'; ");
+				out.println("</script>");
+				out.flush();
 			}
 
 			// 방인원 꽉차면 첫번째 참가자 랜덤로직 실행
@@ -193,7 +221,7 @@ public class ApplyController extends HttpServlet {
 		} else if (path.equals("/apply/resultPage.apply")) {
 			ArrayList<String> closeSeat = service.getSeat(request, response);
 			ArrayList<String> seatWH = service.getOptionWH(request, response);
-			ArrayList<ApplyVO> allApplyUser = service.getAllApply(request, response);
+			ArrayList<ApplyVO> allApplyUser = service.getRoomAllApply(request, response);
 
 			HashMap<String, String> selectUser = new HashMap<String, String>();
 

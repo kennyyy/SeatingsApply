@@ -1,19 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 </div>
 		</section>
 		
-		<footer>
+		
+	</div>
+	
+		
+	</div>
+	<footer>
 			<div class="footer_content">
 
-				<p>©2024  Communications, Inc. <span>All rights reserved.</span></p>
+				<p>Copyright &copy; 2024 SeatingsApply Communications, Inc. <span>All rights reserved.</span></p>
 
 
 			</div>
 		</footer>
-	</div>
-		
-	</div>
+	<!-- IONICONS -->
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    <!-- JS -->
+    <script src="/assets/js/main.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/styles.css?after">
+	<link rel="stylesheet" href="/assets/css/setStyles.css?after">
 
 </body>
 </html>

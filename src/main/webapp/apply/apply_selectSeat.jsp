@@ -3,13 +3,14 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file = "../include/header.jsp" %>
-<% response.setHeader("Refresh", "15"); %>
+<% response.setHeader("Refresh", "10"); %>
 
 
 <div style = "text-align: center;">
-	<h2>여기는 좌석 선택방입니다.</h2>
-		<h4>신속히 죄석을 체크한 후 좌석선택 버튼을 클릭하세요.</h4>
-		<h4>한번 신청하면 되돌릴 수 없습니다. 신중히 선택해 주세요.</h4>
+	<h1>[여기는 좌석 선택방입니다]</h1>
+	<h3>1. 신속히 죄석을 체크한 후 좌석선택 버튼을 클릭하세요.</h3> 
+	<h3>2. 한번 신청하면 되돌릴 수 없습니다. 신중히 선택해 주세요.</h3>
+		
 	<hr>
 	
 	<br>

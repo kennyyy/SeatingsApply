@@ -6,21 +6,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- IONICONS -->
-    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
-    <!-- JS -->
-    <script src="/assets/js/main.js"></script>
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="/assets/css/styles.css">
-	<link rel="stylesheet" href="/assets/css/setStyles.css">
+  
     <title>좌석 선택 프로그램</title>
-    
     <style>
 		.container{
-			background-color: rgba(0, 0, 0, 0.05);
+			background-color: rgba(0, 0, 0, 0.03);
 			width: 100wh;
-			height: 100vh;
 
 		}
 		header{
@@ -33,18 +24,20 @@
 		section{
 			margin: 0 auto;
 			width: 100%;
-			height: 67.5%;
+			height: 650px;
 		}
 		footer{
-			
+			position:sticky;
+			bootom: 0px;
 			width: 100%;
-			height: 20%;
+			height: 150px;
 			background-color: #26282A;
 			color: #fff;
 			text-align: center;
 		}
 		footer p{
-			padding-top: 30px;
+			margin: 0px;
+			line-height: 150px;
 		}
 		footer a{
 			text-decoration: none;
@@ -69,11 +62,13 @@
 			color: white;
 			
 		}
+		a{
+		 font-weight: bold;
+		}
+		
 		.section_container{
 			width: 60%;
-			height: 90%;
-			margin: 50px auto;
-
+			margin: 80px auto;
 			border-radius: 15px;
 			
 		}
@@ -85,12 +80,12 @@
             <div>
                 <div class="nav__brand ">
                     <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
-                    <a href="#" class="nav__logo">Menu</a>
+                    <a href="/" class="nav__logo">Menu</a>
                 </div>
                 <div class="nav__list">
-                    <a href="/" class="nav__link active">
+                    <a href="/" class="nav__link">
                       
-                        <span class="nav_name">Home</span>
+                        <span class="nav_name"><b>Home</b></span>
                     </a>
                     
                     <a href="/apply/list.apply" class="nav__link">
@@ -106,7 +101,7 @@
                     
                     <a href="/list.other" class="nav__link">
 
-                        <span class="nav_name">Other</span>
+                        <span class="nav_name">Board</span>
                     </a>
 
 					<c:choose>
@@ -126,7 +121,7 @@
 	                    
 	                    <a href="/mypage.member" class="nav__link">
 	                        
-	                        <span class="nav_name">MYPAGE</span>
+	                        <span class="nav_name">MyPage</span>
 	                    </a>
 	                    
 	               		 <a href="/logout.member" class="nav__link">
@@ -144,7 +139,7 @@
 		<header>
 			<div class="header_container">
 
-					<h1>HOME</h1>
+					<h1><a href="/" style="color : white;">HOME</a></h1>
 			
 			</div>
 		</header>

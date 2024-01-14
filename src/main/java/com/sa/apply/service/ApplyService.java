@@ -26,5 +26,7 @@ public interface ApplyService {
 	public void startRandomSeat(HttpServletRequest request, HttpServletResponse response);
 	public int applySeatUpdate(HttpServletRequest request, HttpServletResponse response);
 	public int getUserSeat(HttpServletRequest request, HttpServletResponse response);
+	public ArrayList<ApplyVO> getRoomAllApply(HttpServletRequest request, HttpServletResponse response);
+	public ArrayList<Integer> getUserRoomsNum(HttpServletRequest request, HttpServletResponse response);
 	
 }
