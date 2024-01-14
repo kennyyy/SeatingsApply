@@ -3,7 +3,7 @@
 <%@ include file="/include/header.jsp" %>
 
 	<div class="form-group" ">
-        <h3>랜덤 버튼 : ${msg } <input class="ran_btn" type="button" name="RANDOMCYCLE" value="랜덤 뽑기" onclick="location.href='./random.apply'; "> 
+        <h3>랜덤 버튼 : ${msg } <input class="ran_btn" type="button" name="RANDOMCYCLE" value="랜덤 뽑기" onclick="randomChoose(${userList.size()})"> 
         [누를때마다 정하신 당첨인원이 랜덤으로 뽑힙니다.] </h3>
        <input style="font-size: 30px; font-weight: bold;" type="text"  value= "대기 중인 유저 : ${userList }" /> 
        <input style="font-size: 30px; font-weight: bold;" type="text"  value= "당첨된 유저 : ${remainUser }" />
@@ -35,7 +35,18 @@
         <input type="submit" value="좌석 확정 하기"/><br>
     </form>
 </div>
-
+<script type="text/javascript">
+	function randomChoose(num)  {
+		if(num == 0){
+			alert("더 이상 뽑을 유저가 없습니다.");
+		}else{
+			alert("랜덤 뽑기를 시작합니다! (남은 유저수 : "+num+"명)");
+		}
+	  	
+	  	location.href='./random.apply';
+	}
+	
+</script>
 
 <%@ include file="/include/footer.jsp" %>
 
