@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import com.sa.log.model.MemberVO;
 
-@WebFilter({})
+@WebFilter({"*.roomSet"})
 public class RoomSettingFilter implements Filter{
 	
 	@Override
@@ -27,10 +27,11 @@ public class RoomSettingFilter implements Filter{
 	
 	HttpSession session = req.getSession();
 	String user_id = (String)session.getAttribute("user_id");
+	String user_master = (String)session.getAttribute("user_master");
 	
 	MemberVO vo = new MemberVO();
 	
-	if(user_id == null || vo.getMaster().equals("U")) {
+	if(user_id == null || user_master.equals("U")) {
 		res.setContentType("text/html; charset=UTF-8;");
 		PrintWriter out = res.getWriter();
 		out.println("<script>");
