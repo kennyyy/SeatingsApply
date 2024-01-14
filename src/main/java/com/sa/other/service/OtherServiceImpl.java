@@ -79,13 +79,14 @@ public class OtherServiceImpl implements OtherService{
 			}
 		}
 		if(flag) {
+
 			dao.hitUpdate(bno);
 			cooValue += bno + "-";
 		}
 		
 		Cookie coo = new Cookie("hit", cooValue);
 		coo.setMaxAge(30);
-		response.addCookie(coo);;
+		response.addCookie(coo);
 	}
 	
 	
