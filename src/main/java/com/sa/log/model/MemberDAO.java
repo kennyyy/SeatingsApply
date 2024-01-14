@@ -131,6 +131,7 @@ public class MemberDAO {
 				vo = new MemberVO();
 				vo.setId(id);
 				vo.setName(rs.getString("name"));
+				vo.setMaster(rs.getString("master"));
 			};
 			
 		}catch (Exception e) {

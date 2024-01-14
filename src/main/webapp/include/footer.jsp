@@ -22,6 +22,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/styles.css?after">
 	<link rel="stylesheet" href="/assets/css/setStyles.css?after">
+	<link rel="stylesheet" href="/assets/css/apply.css?after">
 
 </body>
 </html>

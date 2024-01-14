@@ -4,10 +4,12 @@
 	<%@ include file="../include/header.jsp" %>
 	
 	<div align="center" class="div_center">
-	<h3>MYPAGE</h3>
+	<h3>[MyPage]</h3>
+	<br>
 	<hr>
+	<br>
 	<p>
-		<b sytle="color: purple: red">"${sessionScope.user_name }"님의 정보를 관리
+		<b style="color: purple;">[${sessionScope.user_name }] 님의 정보를 관리
 	</p>
 
 	<a href="update.member">[회원정보변경]</a>&nbsp;

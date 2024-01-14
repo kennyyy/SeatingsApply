@@ -318,7 +318,9 @@ public class ApplyDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select count(*) from apply group by roomnumber order by roomnumber";
+		String sql = "select o.roomnumber, NVL(a.cnt, 0) as count from options o \r\n"
+				+ "left outer join  (select roomnumber ,count(*) as cnt from apply group by roomnumber) a on a.roomnumber = o.roomnumber \r\n"
+				+ "order by o.roomnumber";
 		
 		try {
 			conn = dataSource.getConnection();
@@ -327,7 +329,7 @@ public class ApplyDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				list.add(rs.getInt("count(*)"));
+				list.add(rs.getInt("count"));
 			}
 
 		} catch (Exception e) {

@@ -6,8 +6,8 @@
 <%@ include file="../include/header.jsp" %>
 
 <div align="center" class="div_center" >
-		<h3>유저 커뮤니티</h3>
-		
+		<h1>[유저 커뮤니티]</h1><br>
+		<hr><br>
 		<table class="table table-dark table-hover" border="1">	
 			<thead style = "text-align: center">
 				<tr>
@@ -36,15 +36,14 @@
 					<td colspan="5" align="right">
 						<form action="" class="form-inline" >
 						  <div class="form-group">
-						    <input type="text" name="search" placeholder="제목검색" class="form-control" >
-						  	<input type="submit" value="검색" class="btn btn-default">
+					
 							<input type="button" value="글작성" class="btn btn-default" onclick="location.href='write.other';">
 						  </div>
 						</form> 
 					</td>
 				</tr>
 			</tbody>
-			<hr>
+			
 		</table>
 	</div>
 

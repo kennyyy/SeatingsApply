@@ -6,8 +6,8 @@
 
 <div align="center" class="div_center">
 
-	<h3>Content</h3>
-	<hr>
+	<h1>[게시글 내용]</h1><br>
+	<hr><br>
 	<table border="1" width="500">
 		<tr>
 			<td width="20%">글번호</td>

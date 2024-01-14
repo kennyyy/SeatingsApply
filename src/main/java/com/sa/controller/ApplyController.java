@@ -2,9 +2,14 @@ package com.sa.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -59,7 +64,6 @@ public class ApplyController extends HttpServlet {
 			session.getAttribute("user_id");
 			
 			ArrayList<OptionVO> ovo = service.getOption(request, response);
-
 			ArrayList<Integer> nowUserRoomsNum = service.getUserRoomsNum(request, response);
 
 			request.setAttribute("nowUserRoomsNum", nowUserRoomsNum);
@@ -68,14 +72,12 @@ public class ApplyController extends HttpServlet {
 			request.getRequestDispatcher("apply_list.jsp").forward(request, response);
 
 		} else if (path.equals("/apply/join.apply")) {
-			System.out.println("입장");
 			HttpSession session = request.getSession();	
 			String userid = (String) session.getAttribute("user_id");
-			
-			
 			System.out.println(userid);
+			
 			ArrayList<String> applyUesr = service.getRoomNumApply(request, response);
-		
+			int numCount = service.getNumCount(request, response);
 			
 			boolean isNotApplyUser = false;
 			for (String s : applyUesr) {
@@ -103,16 +105,20 @@ public class ApplyController extends HttpServlet {
 				out.flush();
 			}
 		
-		
+
+			
+			
 			// 유저가 꽉차면
-			if (service.getRoomNumApply(request, response).size() >= service.getNumCount(request, response)) {
+			if (applyUesr.size() >= numCount) {
 				int result = service.allUserUpdateWin(request, response);
 				System.out.println(result + "개 : 업데이트완료");
 			}
 			
 			
 			ArrayList<ApplyVO> iswinList = service.getIsWin(request, response);
-			request.setAttribute("iswinList", iswinList);
+			request.setAttribute("applyUesr", applyUesr.size());
+			request.setAttribute("numCount", numCount);
+			request.setAttribute("iswinList", iswinList); 
 			request.getRequestDispatcher("apply_waittingRoom.jsp").forward(request, response);
 
 		}
@@ -179,13 +185,7 @@ public class ApplyController extends HttpServlet {
 				out.flush();
 			}
 
-			// 방인원 꽉차면 첫번째 참가자 랜덤로직 실행
-			// 일단 보류
-			// System.out.println(service.getNumCount(request, response));
-			// System.out.println(userid.equals("USER6"));
-			// if( service.getNumCount(request, response) == 5 && userid.equals("USER6")) {
-			// service.startRandomSeat(request, response);
-			// }
+		
 
 		} else if (path.equals("/apply/selectseat.apply")) {
 
@@ -213,8 +213,8 @@ public class ApplyController extends HttpServlet {
 				response.sendRedirect("resultPage.apply?roomnumber=" + request.getParameter("roomnumber"));
 			} else {
 
-				request.setAttribute("msg", "이미 신청한 좌석입니다.");
-				request.getRequestDispatcher("selectseat.apply").forward(request, response);
+				request.setAttribute("msg", "당신은 이미 신청했거나, 누군가 먼저 선택된 좌석입니다.");
+				request.getRequestDispatcher("selectseat.apply?roomnumber=" + request.getParameter("roomnumber")).forward(request, response);
 
 			}
 
@@ -237,6 +237,84 @@ public class ApplyController extends HttpServlet {
 			request.setAttribute("closeSeat", closeSeat);
 			request.setAttribute("seatWH", seatWH);
 			request.getRequestDispatcher("apply_resultPage.jsp").forward(request, response);
+		}
+		
+		else if(path.equals("/apply/roomSetting.apply")) {
+	
+			String users = request.getParameter("users");
+			ArrayList<String> userList = new ArrayList<>();
+			if(users != null) {
+				String[] user_arr = users.split(" ");
+				
+				for(String s : user_arr) {
+					userList.add(s);
+				}
+			}
+			Deque<String> remainUser = new ArrayDeque<>();
+			int winNum = Integer.parseInt(request.getParameter("winNum")); //당첨인원
+		    int width = Integer.parseInt(request.getParameter("width")); //가로
+		    int height = Integer.parseInt(request.getParameter("height")); //세로
+		    
+		    HttpSession session = request.getSession();
+		    session.setAttribute("width", width);
+		    session.setAttribute("height", height);
+		    session.setAttribute("winNum", winNum);
+		    session.setAttribute("userList", userList);
+		    session.setAttribute("remainUser", remainUser);
+		    
+			
+			request.getRequestDispatcher("room_settingTable.jsp").forward(request, response);
+		}
+		
+		else if(path.equals("/apply/random.apply")) {
+			HttpSession session = request.getSession();
+			ArrayList<String> userList = (ArrayList<String>)session.getAttribute("userList");
+			Deque<String> remainUser = (Deque<String>)session.getAttribute("remainUser");
+			int winningNum = (int)session.getAttribute("winNum");
+			
+			Set<String> winningUser = new HashSet<>();
+			Random random = new Random();
+			
+
+			System.out.println(userList); 
+			System.out.println(remainUser);
+	 		System.out.println(winningUser);
+	 		System.out.println(winningNum);
+			
+	
+			if(userList.isEmpty()) {
+				request.setAttribute("msg", "[더 이상 뽑을 유저가 없습니다.]");
+				
+			}else {
+				if(userList.size() < winningNum) {
+					winningUser.addAll(userList);
+				}else {
+					while(winningUser.size() != winningNum) {
+						winningUser.add(userList.get(random.nextInt(userList.size())));
+					}
+				}
+				
+				userList.removeAll(winningUser); 
+				for(String s : winningUser) {
+					remainUser.addFirst(s);
+				}
+				
+				System.out.println(userList); 
+				System.out.println(remainUser);
+		 		System.out.println(winningUser);
+		 		System.out.println(winningNum);
+		 		winningUser.clear();
+				session.setAttribute("userList", userList);	
+				session.setAttribute("remainUser", remainUser);
+			
+				
+			}	
+			request.getRequestDispatcher("room_settingTable.jsp").forward(request, response);
+	 		
+		}
+		else if(path.equals("/apply/result.apply")) {
+			
+			request.getRequestDispatcher("room_result.jsp").forward(request, response);
 		}
 
 	}
