@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class OptionVO {
 	private String roomnumber;
 	private String numcount;
-	private Timestamp deadline;
+	private String deadline;
 	private String width;
 	private String height;
 	private String mid;
@@ -14,7 +14,7 @@ public class OptionVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OptionVO(String roomnumber, String numcount, Timestamp deadline, String width, String height, String mid) {
+	public OptionVO(String roomnumber, String numcount, String deadline, String width, String height, String mid) {
 		super();
 		this.roomnumber = roomnumber;
 		this.numcount = numcount;
@@ -40,11 +40,11 @@ public class OptionVO {
 		this.numcount = numcount;
 	}
 
-	public Timestamp getDeadline() {
+	public String getDeadline() {
 		return deadline;
 	}
 
-	public void setDeadline(Timestamp deadline) {
+	public void setDeadline(String deadline) {
 		this.deadline = deadline;
 	}
 

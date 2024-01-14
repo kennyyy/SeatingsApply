@@ -50,7 +50,7 @@ public class OptionDAO {
 					
 				ovo.setRoomnumber(rs.getString("roomnumber"));
 				ovo.setNumcount(rs.getString("numcount"));
-				ovo.setDeadline(rs.getTimestamp("deadline"));
+				ovo.setDeadline(rs.getString("deadline"));
 				ovo.setWidth(rs.getString("width"));
 				ovo.setHeight(rs.getString("height"));
 				ovo.setMid(rs.getString("mid"));

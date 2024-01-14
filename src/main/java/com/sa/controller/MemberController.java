@@ -73,11 +73,13 @@ public class MemberController extends HttpServlet {
 			
 			MemberVO vo = service.login(request, response);
 			
+			
 			if(vo != null) {
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("user_id", vo.getId());
 				session.setAttribute("user_name", vo.getName());
+				session.setAttribute("user_master", vo.getMaster());
 				
 				response.sendRedirect("../index.jsp");
 			}

@@ -104,7 +104,41 @@ public class ApplyDAO {
 		
 		return user;
 	}
-	
+	public ArrayList<ApplyVO> getRoomAllApply(String roomnumber) {
+		ArrayList<ApplyVO> user = new ArrayList<ApplyVO>();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from apply where roomnumber = ?";
+		
+		try {
+			conn = dataSource.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, roomnumber);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ApplyVO avo = new ApplyVO();
+				
+				avo.setUserid(rs.getString("userid"));
+				avo.setRoomnumber(rs.getString("roomnumber"));
+				avo.setIswin(rs.getString("iswin"));
+				avo.setSelectseat(rs.getString("selectseat"));
+		
+				user.add(avo);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn, pstmt, rs);
+		}
+		
+		return user;
+	}
 	//유저가 선택한 좌석이 있는지 조회
 	public int getApplySelectSeat(String userid, String roomnumber) {
 		
@@ -284,7 +318,9 @@ public class ApplyDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select count(*) from apply group by roomnumber order by roomnumber";
+		String sql = "select o.roomnumber, NVL(a.cnt, 0) as count from options o \r\n"
+				+ "left outer join  (select roomnumber ,count(*) as cnt from apply group by roomnumber) a on a.roomnumber = o.roomnumber \r\n"
+				+ "order by o.roomnumber";
 		
 		try {
 			conn = dataSource.getConnection();
@@ -293,7 +329,7 @@ public class ApplyDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				list.add(rs.getInt("count(*)"));
+				list.add(rs.getInt("count"));
 			}
 
 		} catch (Exception e) {

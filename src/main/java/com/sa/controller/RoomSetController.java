@@ -63,10 +63,10 @@ public class RoomSetController extends HttpServlet {
             roomSetSerivce.insertRoom(RVO);
             roomSetSerivce.insertSeat(request, response);
 
-            session.invalidate();
+    
 
             // request pull 후 경연이 형이 만든 대기실 페이지로 이동
-            response.sendRedirect("/");
+            response.sendRedirect("/apply/list.apply");
 
 
         } 

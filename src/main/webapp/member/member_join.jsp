@@ -10,8 +10,8 @@
 <%@ include file="../include/header.jsp" %>
 	
 	<div align="center" class="div_center">
-		<h3>회원가입</h3>
-		<hr>
+		<h1>[회원가입]</h1>
+		<br>
 		<form action="joinMem.member" method="post" name="reg_mem">
 			<table border="3">
 				<tr>
@@ -76,8 +76,7 @@
 				</tr>
 			</table>
 			<br>
-			<input type="submit" value="회원가입" class="btn btn-default">
-			<input type="reset" value="취소" class="btn btn-default" onclick="">  
+			<input type="submit" value="회원가입" class="btn btn-default" style="width: 280px;">
 			 <div>${msg }</div>
 		</form>	
 	</div>	

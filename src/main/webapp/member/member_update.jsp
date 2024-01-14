@@ -5,8 +5,8 @@
 	
 	<div align="center" class="div_center">
 	<form action="updateMem.member" method="post" >
-		<h3>회원정보 수정 페이지</h3>
-		<hr>
+		<h1>[회원정보 수정 페이지]</h1><br>
+		
 		<table border="3">
 			<tr>
 				<td>아이디</td>
@@ -73,8 +73,7 @@
 		</table>
 		<br>
 		
-		<input type="submit" value="수정" class="btn btn-default" onclick="">&nbsp;&nbsp;
-		<input type="reset" value="취소" class="btn btn-default" onclick="">    
+		<input type="submit" value="수정" class="btn btn-default" onclick="" style="width: 280px;">
 		
 	</form>	
 	</div>	

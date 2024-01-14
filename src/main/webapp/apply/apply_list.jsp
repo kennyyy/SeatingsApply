@@ -3,9 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
 <%@ include file = "../include/header.jsp" %>
-	<div class="container" style = "text-align: center; padding-top: 100px;">
-		<h3>좌석 ROOM 리스트</h3>
-		
+	<div class="container" style = "text-align: center; padding-top: 50px; border-radius: 30px; box-shadow:2px 3px 5px 0px">
+		<h1>[좌석 ROOM 리스트]</h1>
+
+		<h3>1. 입장신청버튼을 누르신 후 </h3>
+		<h3>2. 입장버튼을 눌러 주세요.</h3>
+	
 		<table class="table table-bordered" border="1" style = "display:inline-block; ">
 			<thead>
 				<tr>
@@ -26,35 +29,24 @@
 					<td>${i.deadline }</td>
 					<td>${ nowUserRoomsNum[status.index] == null ? 0 : nowUserRoomsNum[status.index] } / ${i.numcount }</td>
 					<td>
-						<input type="button" value="신청 버튼" class="btn btn-default" onclick="location.href='./applyUser.apply?roomnumber=${i.roomnumber}'; ">
-						<input type="button" value="입장 버튼" class="btn btn-default" onclick="location.href='./join.apply?roomnumber=${i.roomnumber}'; ">
-						<input type="button" value="결과 버튼" class="btn btn-default" onclick="location.href='./resultPage.apply?roomnumber=${i.roomnumber}'; ">
+						<input type="button" value="입장신청" class="btn btn-default btn-cus" onclick="location.href='./applyUser.apply?roomnumber=${i.roomnumber}'; ">
+						<input type="button" value="입장" class="btn btn-default btn-cus" onclick="location.href='./join.apply?roomnumber=${i.roomnumber}'; ">
+						<input type="button" value="결과보기" class="btn btn-default btn-cus" onclick="location.href='./resultPage.apply?roomnumber=${i.roomnumber}'; ">
 					</td>
 				</tr>
 				</c:forEach>
 				
 				
 			</tbody>
-			
-			<!-- <tbody>
-				<tr>
-					<td colspan="5" align="right">
-						<form action="" class="form-inline" >
-						  <div class="form-group">
-						    <input type="text" name="search" placeholder="제목검색" class="form-control" >
-						  	<input type="submit" value="검색" class="btn btn-default">
-							<input type="button" value="글 작성" class="btn btn-default" onclick="location.href='write.board'; ">
-						  </div>
-						</form> 
-					</td>
-				</tr>
-			</tbody> -->
 		
-		</table>
-		
-		<hr>
-			<h3>선생님이 요청 하신 작업(오리지날 프로그램) 마스터만 보기에 할예정</h3>
-			<input type="button" value="선생님 랜덤프로그램 구현" class="btn btn-default" onclick="location.href='./room_setting.jsp'; ">
+		</table><br><br><br>
+			<c:if test="${user_master eq 'M' }">
+					
+				<h1>[강사님 오리지널 자리 랜덤 뽑기 프로그램을 JSP로 구현]</h1>
+				<h3>(마스터 계정만 아래 버튼이 보임)</h3>
+				<h3 style="padding-bottom: 20px;"><input type="button" value="랜덤뽑기 이동" class="btn btn-default" onclick="location.href='./room_setting.jsp'; "></h3>
 				
+			</c:if>
+		
 	</div>
 <%@ include file = "../include/footer.jsp" %>

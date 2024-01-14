@@ -31,6 +31,7 @@ public class ApplyServiceImpl implements ApplyService {
 	@Override
 	public ArrayList<String> getRoomNumApply(HttpServletRequest request, HttpServletResponse response) {
 		String roomnumber = request.getParameter("roomnumber");
+		System.out.println(roomnumber);
 		ArrayList<String> RoomNumApply = adao.getApply(roomnumber);
 		
 		return RoomNumApply;
@@ -97,7 +98,7 @@ public class ApplyServiceImpl implements ApplyService {
 
 		for (SeatVO s : list) {
 			isCloseSeat.add(s.getSeat());
-			System.out.println(s.getSeat());
+
 		}
 		request.setAttribute("roomnumber", roomnumber);
 		return isCloseSeat;
@@ -117,11 +118,10 @@ public class ApplyServiceImpl implements ApplyService {
 
 	@Override
 	public ArrayList<ApplyVO> getIsWin(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("hi?");
+
 		String roomnumber = request.getParameter("roomnumber");
-		System.out.println(roomnumber);
+
 		ArrayList<ApplyVO> iswin = adao.getIsWin(roomnumber);
-		System.out.println(iswin);
 		return iswin;
 	}
 
@@ -155,34 +155,17 @@ public class ApplyServiceImpl implements ApplyService {
 		return result;
 	}
 
-	@Override
-	public void startRandomSeat(HttpServletRequest request, HttpServletResponse response) {
-		String roomnumber = request.getParameter("roomnumber");
-		int winningNum = 3;
-		ArrayList<String> applyUserList = adao.getApply(roomnumber);
-		Set<String> winningUser = new HashSet<>();
-		Random random = new Random();
 
-		while(applyUserList.size() >= winningNum) {
-			while(winningUser.size() != winningNum) {
-				winningUser.add(applyUserList.get(random.nextInt(applyUserList.size())));
-			}
-			 
-	 		applyUserList.removeAll(winningUser); 
-	 		winningUser.clear();
-	 		System.out.println(applyUserList); 
-	 		System.out.println(winningUser); 
-		
-			 
-		}
-		
-		System.out.println(applyUserList); 
- 		 
-
-	}
 	@Override
 	public ArrayList<ApplyVO> getAllApply(HttpServletRequest request, HttpServletResponse response) {
 		ArrayList<ApplyVO> user = adao.getAllApply();
+		return user;
+	}
+	
+	@Override
+	public ArrayList<ApplyVO> getRoomAllApply(HttpServletRequest request, HttpServletResponse response) {
+		String roomnumber = request.getParameter("roomnumber");
+		ArrayList<ApplyVO> user = adao.getRoomAllApply(roomnumber);
 		return user;
 	}
 

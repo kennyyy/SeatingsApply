@@ -34,7 +34,7 @@ public class RoomSetSerivce implements RoomSetServiceIf {
 
     @Override
     public RoomSetVO insertRoom(RoomSetVO RVO) {
-
+    	
         // 데이터 저장.
         RDAO.insertRoom(RVO);
 
@@ -48,13 +48,16 @@ public class RoomSetSerivce implements RoomSetServiceIf {
         HttpSession session = request.getSession();
         RoomSetVO RVO = (RoomSetVO) session.getAttribute("RVO");
 
+       
+	   if(seat != null) {
+		   for (String s : seat) {
+		        String a = RDAO.getRoomNuber(RVO.getMid());
+		        System.out.println(s);
+		        System.out.println(a);
+		        RDAO.insertSeat(s, a);
+		    }
+	   }
 
-        for (String s : seat) {
-            String a = RDAO.getRoomNuber(RVO.getMid());
-            System.out.println(s);
-            System.out.println(a);
-            RDAO.insertSeat(s, a);
-        }
 
 
 

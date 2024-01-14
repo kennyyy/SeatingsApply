@@ -49,7 +49,7 @@ public class MemberServiceImpl implements MemberService {
 		String pw = request.getParameter("pw");
 		
 		MemberVO vo = dao.login(id, pw);
-		
+	
 		return vo;
 	}
 	
