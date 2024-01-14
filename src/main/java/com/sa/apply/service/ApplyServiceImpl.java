@@ -31,6 +31,7 @@ public class ApplyServiceImpl implements ApplyService {
 	@Override
 	public ArrayList<String> getRoomNumApply(HttpServletRequest request, HttpServletResponse response) {
 		String roomnumber = request.getParameter("roomnumber");
+		System.out.println(roomnumber);
 		ArrayList<String> RoomNumApply = adao.getApply(roomnumber);
 		
 		return RoomNumApply;
@@ -117,11 +118,10 @@ public class ApplyServiceImpl implements ApplyService {
 
 	@Override
 	public ArrayList<ApplyVO> getIsWin(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("hi?");
+
 		String roomnumber = request.getParameter("roomnumber");
-		System.out.println(roomnumber);
+
 		ArrayList<ApplyVO> iswin = adao.getIsWin(roomnumber);
-		System.out.println(iswin);
 		return iswin;
 	}
 
@@ -183,6 +183,13 @@ public class ApplyServiceImpl implements ApplyService {
 	@Override
 	public ArrayList<ApplyVO> getAllApply(HttpServletRequest request, HttpServletResponse response) {
 		ArrayList<ApplyVO> user = adao.getAllApply();
+		return user;
+	}
+	
+	@Override
+	public ArrayList<ApplyVO> getRoomAllApply(HttpServletRequest request, HttpServletResponse response) {
+		String roomnumber = request.getParameter("roomnumber");
+		ArrayList<ApplyVO> user = adao.getRoomAllApply(roomnumber);
 		return user;
 	}
 
