@@ -8,11 +8,13 @@
 
     <h1 class="abc">방 생성</h1>
     <form action="roomForm.roomSet" method="post">
+    
 <%--        <div class="form-group">--%>
 <%--            <label class="setLabel" for="roomNumber">방 번호:</label>--%>
 <%--            <input type="text" id="roomNumber" name="roomNumber" value="${'5'}" readonly>--%>
 <%--&lt;%&ndash;            해당 밸류 값은 &ndash;%&gt;--%>
 <%--        </div>--%>
+
         <div class="form-group">
             <label class="setLabel" for="mid">방장 ID:</label>
             <input type="text" id="mid" name="mid" value="${'Master1'}" readonly>

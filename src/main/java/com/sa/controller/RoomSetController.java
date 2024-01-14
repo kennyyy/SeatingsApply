@@ -69,9 +69,12 @@ public class RoomSetController extends HttpServlet {
             response.sendRedirect("/");
 
 
+        } 
+        	
+        	
+        	
         }
+        
 
 
-
-    }
 }
