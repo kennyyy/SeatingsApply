@@ -30,20 +30,40 @@
             </c:forEach>
             </tbody>
         </table>
-
+		
+		<div id="interval-time"></div>
+		
         <br>
         <input type="submit" value="좌석 확정 하기"/><br>
     </form>
 </div>
 <script type="text/javascript">
 	function randomChoose(listSize, winNum)  {
-		if(listSize-winNum <= 0){
-			alert("랜덤뽑기가 완료되었습니다. (남은유저 : 0명)");
-		}else{
-			alert("랜덤 당첨자 뽑기 완료! (남은유저 : "+(listSize - winNum)+"명)");
-		}
-		location.href='./random.apply';
 	  	
+		var a = 2;
+		var x = window.setInterval(() => {
+			
+			document.getElementById("interval-time").innerHTML = a;
+			a--;
+			
+		}, 1000)
+
+		if(a <= 0) {
+			clearInterval(x)
+		}
+		
+		
+		window.setTimeout(() => {
+			
+			if(listSize-winNum <= 0){
+				alert("랜덤뽑기가 완료되었습니다. (남은유저 : 0명)");
+			}else{
+				alert("랜덤 당첨자 뽑기 완료! (남은유저 : "+(listSize - winNum)+"명)");
+			}
+			location.href='./random.apply';
+			
+		}, 3000)
+
 	}
 	
 </script>
