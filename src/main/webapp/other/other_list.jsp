@@ -23,7 +23,6 @@
 				<tr>
 					<td>${vo.bno }</td>
 					<td>${vo.writer}</td>
-					<td>${vo.title}</td>
 					<td><a href="content.other?bno=${vo.bno }">${vo.title}</a></td>
 					<td><fmt:formatDate value="${vo.regdate }" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/></td>
 					<td>${vo.hit }</td>

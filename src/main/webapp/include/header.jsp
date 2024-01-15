@@ -144,10 +144,6 @@
 	                    </a>
                     </c:otherwise>
                     </c:choose>
-	                    <a href="#" class="nav__link">
-	
-	                        <span class="nav_name">Unknown</span>
-	                    </a>
                 </div>
             </div>
         </nav>

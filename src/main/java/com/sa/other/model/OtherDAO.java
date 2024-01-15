@@ -51,11 +51,11 @@ public class OtherDAO {
 			while(rs.next()) {
 				
 				int bno = rs.getInt("bno");
-				String writer = rs.getString("writer");
 				String title = rs.getString("title");
 				String content = rs.getString("content");
-				Timestamp regdate = rs.getTimestamp("regdate");
+				String writer = rs.getString("writer");
 				int hit = rs.getInt("hit");
+				Timestamp regdate = rs.getTimestamp("regdate");
 				
 				OtherVO vo = new OtherVO(bno, writer, title, content, hit, regdate);
 				list.add(vo);
