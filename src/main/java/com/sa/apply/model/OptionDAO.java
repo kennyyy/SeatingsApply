@@ -3,6 +3,8 @@ package com.sa.apply.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.naming.InitialContext;
@@ -54,7 +56,9 @@ public class OptionDAO {
 				ovo.setWidth(rs.getString("width"));
 				ovo.setHeight(rs.getString("height"));
 				ovo.setMid(rs.getString("mid"));
-				
+				Timestamp ts = rs.getTimestamp("nowdate");
+				SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+				ovo.setNowdate(sdf.format(ts));
 				list.add(ovo);
 			}
 			
