@@ -15,21 +15,21 @@
 <%--        </div>--%>
         <div class="form-group">
             <label class="setLabel" for="mid">방장 ID:</label>
-            <input type="text" id="mid" name="mid" value="${'Master1'}" readonly>
+            <input type="text" id="mid" name="mid" value="${sessionScope.user_id}" readonly>
 <%--            value 값은 나중에 세션으로 받아서 보여주면 됩니다. --%>
         </div>
         <div class="form-group">
             <label for="numCount">방 인원:</label>
             <input type="number" id="numCount" name="numCount" required>
         </div>
-        <div class="form-group">
+   <!--      <div class="form-group">
             <label for="deadLine">마감 날짜:</label><br>
             <input type="date" id="deadLine" name="deadLine" required>
-        </div>
-        <div class="form-group">
+        </div> -->
+        <!-- <div class="form-group">
             <label for="closingTime">마감 시간:</label>
             <input type="time" id="closingTime" name="closingTime" required>
-        </div>
+        </div> -->
         <div class="form-group">
             <label for="width">좌석 가로 길이: (최대 길이를 입력해주세요.)</label>
             <input type="number" id="width" name="width" required>
@@ -38,14 +38,14 @@
             <label for="height">좌석 세로 길이: (최대 길이를 입력해주세요.)</label>
             <input type="number" id="height" name="height" required>
         </div>
-        <div class="form-group">
+      <!--   <div class="form-group">
             <label for="RANDOMCYCLE">랜덤 주기: (초 단위) (미개발 상태)</label>
             <input type="number" id="RANDOMCYCLE" name="RANDOMCYCLE" value="null" readonly>
         </div>
         <div class="form-group">
             <label for="CYCLENUM">주기당 당첨 인원: (미개발 상태)</label>
             <input type="number" id="CYCLENUM" name="CYCLENUM" value="null" readonly>
-        </div>
+        </div> -->
         <input type="submit" value="다음 설정">
     </form>
 

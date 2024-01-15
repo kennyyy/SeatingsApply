@@ -26,7 +26,7 @@
 				<tr>
 					<td>${i.roomnumber }</td>
 					<td>${i.mid }</td>
-					<td>${i.deadline }</td>
+					<td>${i.nowdate }</td>
 					<td>${ nowUserRoomsNum[status.index] == null ? 0 : nowUserRoomsNum[status.index] } / ${i.numcount }</td>
 					<td>
 						<input type="button" value="입장신청" class="btn btn-default btn-cus" onclick="location.href='./applyUser.apply?roomnumber=${i.roomnumber}'; ">

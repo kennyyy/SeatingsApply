@@ -9,12 +9,13 @@ public class OptionVO {
 	private String width;
 	private String height;
 	private String mid;
+	private String nowdate;
 	
 	public OptionVO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OptionVO(String roomnumber, String numcount, String deadline, String width, String height, String mid) {
+	public OptionVO(String roomnumber, String numcount, String deadline, String width, String height, String mid, String nowdate) {
 		super();
 		this.roomnumber = roomnumber;
 		this.numcount = numcount;
@@ -70,6 +71,14 @@ public class OptionVO {
 
 	public void setMid(String mid) {
 		this.mid = mid;
+	}
+
+	public String getNowdate() {
+		return nowdate;
+	}
+
+	public void setNowdate(String nowdate) {
+		this.nowdate = nowdate;
 	}
 
 	

@@ -57,7 +57,7 @@ public class OtherDAO {
 				int hit = rs.getInt("hit");
 				Timestamp regdate = rs.getTimestamp("regdate");
 				
-				OtherVO vo = new OtherVO(bno, title, content, writer, hit, regdate);
+				OtherVO vo = new OtherVO(bno, writer, title, content, hit, regdate);
 				list.add(vo);
 			}
 		}
